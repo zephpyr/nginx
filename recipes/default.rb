@@ -12,7 +12,8 @@ package "nginx" do
 end
 
 service "nginx" do
-  supports :status => true, :restart => true, :reload => true
+  supports :status => true, :restart => true, :reload => true, :start => true
+  action :nothing
 end
 
 template "/etc/nginx/nginx.conf" do
