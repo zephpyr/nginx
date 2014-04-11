@@ -22,3 +22,7 @@ template "/etc/nginx/nginx.conf" do
     mode 0755
     notifies :reload, resources(:service => "nginx")
 end
+
+service "nginx" do
+    action :start
+end
