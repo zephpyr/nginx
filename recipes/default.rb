@@ -12,8 +12,7 @@ package "nginx" do
 end
 
 service "nginx" do
-  supports :status => true, :restart => true, :reload => true, :start => true
-  action :nothing
+  supports :status => true, :restart => true, :reload => true
 end
 
 template "/etc/nginx/nginx.conf" do
@@ -21,5 +20,5 @@ template "/etc/nginx/nginx.conf" do
     owner "root"
     group "root"
     mode 0755
-    notifies :start, resources(:service => "nginx")
+    notifies :reload, resources(:service => "nginx")
 end
