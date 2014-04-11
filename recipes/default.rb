@@ -20,5 +20,5 @@ template "/etc/nginx/nginx.conf" do
     owner "root"
     group "root"
     mode 0755
-    notifies :restart, resources(:service => "nginx")
+    notifies :start, resources(:service => "nginx")
 end
