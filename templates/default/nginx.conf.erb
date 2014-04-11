@@ -69,7 +69,7 @@ http {
     ##
     
     <% node['nginx']['http']['include'].each do |include| %>
-    <%= "include #{include}"; %>
+    <%= "include #{include};" %>
     <% end %>
 }
 
