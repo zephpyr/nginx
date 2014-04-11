@@ -20,9 +20,5 @@ template "/etc/nginx/nginx.conf" do
     owner "root"
     group "root"
     mode 0755
-    notifies :reload, resources(:service => "nginx")
-end
-
-service "nginx" do
-    action :start
+    notifies :start, resources(:service => "nginx")
 end
