@@ -24,7 +24,7 @@ define :nginx_app, :template => 'nginx_app.conf.erb', :local => false, :enable =
     end
 
     site_enabled = params[:enabled]
-    nginx_site "#{params[:name]}.conf" do
+    nginx_site "#{params[:name]}" do
         enable site_enabled
     end
 

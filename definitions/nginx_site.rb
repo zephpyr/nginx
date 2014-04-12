@@ -8,7 +8,6 @@ define :nginx_site, :enable => true do
         link "#{node['nginx']['dir']}/sites-enabled/#{params[:name]}" do
             to "#{node['nginx']['dir']}/sites-available/#{params[:name]}"
             action :create
-            target_file "#{params[:name]}"
             only_if do
                 ::File.exists?("#{node['nginx']['dir']}/sites-available/#{params[:name]}")
             end
