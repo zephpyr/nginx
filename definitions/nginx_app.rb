@@ -7,7 +7,7 @@ define :nginx_app, :template => 'nginx_app.conf.erb', :local => false, :enable =
 
     include_recipe 'nginx::default'
 
-    template "#{node['nginx']['dir']}/sites-available/#{application_name}.conf" do
+    template "#{node['nginx']['dir']}/sites-available/#{application_name}" do
         source params[:template]
         local params[:local]
         owner 'root'
@@ -18,7 +18,7 @@ define :nginx_app, :template => 'nginx_app.conf.erb', :local => false, :enable =
             :application_name => application_name,
             :params           => params
         )
-        if ::File.exists?("#{node['nginx']['dir']}/sites-available/#{application_name}.conf")
+        if ::File.exists?("#{node['nginx']['dir']}/sites-available/#{application_name}")
             notifies :reload, resources(:service => "nginx")
         end
     end

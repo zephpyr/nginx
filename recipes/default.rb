@@ -22,7 +22,3 @@ template "/etc/nginx/nginx.conf" do
     mode 0755
     notifies :start, resources(:service => "nginx")
 end
-
-nginx_site 'default' do
-  enable node['nginx']['default_site_enabled']
-end
